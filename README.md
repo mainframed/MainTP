@@ -1,30 +1,30 @@
 ## MainTP.py
 
-A python script which takes a hostname/ip address of a z/OS FTP server, a username and password and gives you shell access in OMVS. 
+A python script which takes a hostname/ip address of a z/OS FTP server, a username and password and gives you either a bind shell or reverse shell and automatically connects to it. 
 
 ## How?
 
-**Netcat**: A copy of the netcat binary is stored in this script BASE64 encoded. It's been precompiled in OMVS to make this a stand alone script. After connecting to z/OS it uploads this file. 
+**Bind/Reverse Shell**: A JCL file is dynamically generated which contains either a bind or reverse shell in C. This C code is compiled, on z/OS, at the time of exploit. 
 
-**JCL**: A JCL file is dynamically created based on a bunch of criteria. It copies the binary and executes a listener on a random port. 
+**CVE-2012-5955**: The JCL file contains an implementation of CVE-2012-5955 originally discovered by whomever perpetrated the Logica mainframe breach. Refer to https://github.com/mainframed/logica/blob/master/kuku.rx for original local priv escalation exploit on OMVS. This is essentially a REXX script that exploits a flaw to give you UID 0. 
 
-**NetEBCDICat**: A copy of NetEBCDICat is here as well. NetEBCDICat is just an implementation, in python, of netcat but it translates EBCDIC to ASCII because netcat in OMVS only speaks EBCDIC. 
+**JCL**: A JCL file is dynamically created based on the criteria provided (shell type, ip addresses, ports), uploaded via FTP and executed by JES (using the SITE FILE=JES extended commands). 
+
+**NetEBCDICat**: A copy of NetEBCDICat is here as well. NetEBCDICat is just an implementation, in python, of a socket ommunicator but it translates EBCDIC to ASCII because OMVS only speaks EBCDIC (ugh!). 
 
 ## Together
 
 [+] Connecting to: mainframe.company.com : 21
 
-[+] Uploading trapdoor binary
-
 [+] Switching to JES mode
 
 [+] Inserting JCL in to job queue
 
-[+] Cleaning up...
+[+] Job JOB00000 added to JES queue
 
-[+] Connecting Shell on port 50033 .....Done!
+[+] Connecting Reverse Shell - Waiting for z/OS!
 
 id
 
-uid=31337(CASE) gid=0(GRP1)
+uid=0(SYSROOT) gid=0(SYS1)
 
