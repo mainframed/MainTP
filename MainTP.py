@@ -10,7 +10,7 @@
 #  a JCL which creates a C program, compiles it, and executes it using  #
 #  a privilege escalation exploit to obtain UID 0.                      #
 #                                                                       #
-#  The uploaded JCL contains an implementation of CVE-2012-5955         #
+#  The uploaded JCL contains an implementation of CVE-2012-5951         #
 #  originally discovered by whomever perpetrated the Logica mainframe   #
 #  breach.                                                              #
 #                                                                       #
