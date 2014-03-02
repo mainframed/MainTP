@@ -6,7 +6,7 @@ A python script which takes a hostname/ip address of a z/OS FTP server, a userna
 
 **Bind/Reverse Shell**: A JCL file is dynamically generated which contains either a bind or reverse shell in C. This C code is compiled, on z/OS, at the time of exploit. 
 
-**CVE-2012-5955**: The JCL file contains an implementation of CVE-2012-5955 originally discovered by whomever perpetrated the Logica mainframe breach. Refer to https://github.com/mainframed/logica/blob/master/kuku.rx for original local priv escalation exploit on OMVS. This is essentially a REXX script that exploits a flaw to give you UID 0. 
+**CVE-2012-5951**: The JCL file contains an implementation of CVE-2012-5955 originally discovered by whomever perpetrated the Logica mainframe breach. Refer to https://github.com/mainframed/logica/blob/master/kuku.rx for original local priv escalation exploit on OMVS. This is essentially a REXX script that exploits a flaw to give you UID 0. 
 
 **JCL**: A JCL file is dynamically created based on the criteria provided (shell type, ip addresses, ports), uploaded via FTP and executed by JES (using the SITE FILE=JES extended commands). 
 
