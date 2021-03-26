@@ -249,7 +249,7 @@ rm /tmp/'''+exec_file+''';
 
 def manhattan_transfer_logo(sleep=0.05):
 # Just prints an animated logo on a dare
-# Jump to line 475 to skip this
+# Jump to line 557 to skip this
 	os.system('clear')
 	print '''
 / \                                                                        / \\
