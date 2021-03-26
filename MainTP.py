@@ -249,7 +249,7 @@ rm /tmp/'''+exec_file+''';
 
 def manhattan_transfer_logo(sleep=0.05):
 # Just prints an animated logo on a dare
-# Jump to line 475 to skip this
+# Jump to line 557 to skip this
 	os.system('clear')
 	print '''
 / \                                                                        / \\
@@ -603,13 +603,13 @@ if results.debug:
 	print bcolors.YELLOW + "{!} - FTP Server Port:"+bcolors.GREEN+"",results.FTP_port, "" + bcolors.ENDC
 	print bcolors.YELLOW + "{!} - FTP Username:"+bcolors.GREEN+"", results.username, "" + bcolors.ENDC
 	print bcolors.YELLOW + "{!} - FTP Password:"+bcolors.GREEN+"", results.password, "" + bcolors.ENDC
-	if results.port != None: print bcolors.YELLOW + "{!} - Listener Port:"+bcolors.GREEN+"", results.port, "" + bcolors.ENDC
+	if results.lport != None: print bcolors.YELLOW + "{!} - Listener Port:"+bcolors.GREEN+"", results.lport, "" + bcolors.ENDC
 
 try:	
 	MTP = FTP()
 	MTP.connect(results.ip, results.FTP_port)
 	MTP.login(results.username, results.password)
-	if results.debug: print bcolors.YELLOW + "{!} - Connected to:"+bcolors.GREEN+"", results.ip,":",results.port, "" + bcolors.ENDC
+	if results.debug: print bcolors.YELLOW + "{!} - Connected to:"+bcolors.GREEN+"", results.ip,":",results.rport, "" + bcolors.ENDC
 except Exception, e:
     	print  bcolors.RED + "[ERR] could not connect to ",results.ip,":",results.FTP_port,"" + bcolors.ENDC
 	print bcolors.RED + "",e,"" + bcolors.ENDC
